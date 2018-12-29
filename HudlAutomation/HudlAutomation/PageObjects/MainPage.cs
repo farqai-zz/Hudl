@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading;
-using HudlAutomation.Utilities;
+﻿using HudlAutomation.Utilities;
 using OpenQA.Selenium;
 
 namespace HudlAutomation.PageObjects

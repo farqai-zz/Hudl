@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using HudlAutomation.Utilities;
 using OpenQA.Selenium;
 
@@ -47,7 +46,8 @@ namespace HudlAutomation.PageObjects
 
         public void ResetPasswordClick()
         {
-            _webDriver.FindElement(_resetPasswordBtn).Click();
+            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _extension.ClickUsingJs(_webDriver.FindElement(_resetPasswordBtn));
         }
 
         public bool SuccessMessageOnReset()

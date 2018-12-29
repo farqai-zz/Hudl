@@ -26,7 +26,6 @@ namespace HudlAutomation.Tests
             _loginPage.PopulateLoginForm(email, password);
             _loginPage.SubmitLoginForm();
 
-
             Assert.IsTrue(_mainPage.IsExploreOptionPresent(), "Could not login the user.");
         }
 
@@ -40,7 +39,7 @@ namespace HudlAutomation.Tests
             _homePage.GoToLoginPage();
             _loginPage.PopulateLoginForm(email, password);
             _loginPage.SubmitLoginForm();
-
+           
             Assert.IsTrue(_loginPage.ErrorMessageOnLoginAttempt(), "Could not login the user.");
         }
 
@@ -55,10 +54,9 @@ namespace HudlAutomation.Tests
             _loginPage.PopulateLoginForm(email, password);
             _loginPage.ForgotLoginClick();
             _loginPage.ResetPasswordClick();
-            
+            Thread.Sleep(3000);//ToDo change to implicit
             Assert.IsTrue(_loginPage.SuccessMessageOnReset(),"Could not send password reset email.");
         }
-
 
         [TearDown]
         public void CleanUp()
