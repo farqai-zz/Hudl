@@ -1,5 +1,5 @@
 # Hudl
-Hudl Automation Tests that test for login successfully and unsuccessfully, along with password rest functionality.
+Hudl Automation Tests that test for login along with password rest functionality.
 
 ## Requirements
 
