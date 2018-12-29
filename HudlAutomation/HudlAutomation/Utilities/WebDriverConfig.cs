@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 
 namespace HudlAutomation.Utilities
 {
@@ -27,7 +21,7 @@ namespace HudlAutomation.Utilities
             return _driver;
         }
 
-        public void CleanUp()
+        public void CloseDriver()
         {
             _driver.Quit();
         }
