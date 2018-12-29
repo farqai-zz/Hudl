@@ -26,7 +26,8 @@ namespace HudlAutomation.Tests
             _loginPage.PopulateLoginForm(email, password);
             _loginPage.SubmitLoginForm();
 
-            Assert.IsTrue(_mainPage.IsSearchBarPresent(), "Could not login the user.");
+
+            Assert.IsTrue(_mainPage.IsExploreOptionPresent(), "Could not login the user.");
         }
 
         [TestCase("farhad_89@hotmail.com", "qwerty123")]
@@ -55,7 +56,6 @@ namespace HudlAutomation.Tests
             _loginPage.ForgotLoginClick();
             _loginPage.ResetPasswordClick();
             
-            Thread.Sleep(3000);
             Assert.IsTrue(_loginPage.SuccessMessageOnReset(),"Could not send password reset email.");
         }
 

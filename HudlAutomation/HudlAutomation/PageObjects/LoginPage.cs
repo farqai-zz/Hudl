@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
+using HudlAutomation.Utilities;
 using OpenQA.Selenium;
 
 namespace HudlAutomation.PageObjects
@@ -6,6 +8,7 @@ namespace HudlAutomation.PageObjects
     class LoginPage
     {
         private readonly IWebDriver _webDriver;
+        private readonly WebDriverExtension _extension;
         private readonly By _email = By.Id("email");
         private readonly By _password = By.Id("password");
         private readonly By _logIn = By.Id("logIn");
@@ -17,6 +20,7 @@ namespace HudlAutomation.PageObjects
         public LoginPage(IWebDriver driver)
         {
             this._webDriver = driver;
+            _extension = new WebDriverExtension(driver);
         }
 
         public void PopulateLoginForm(string email, string passwordIn)
@@ -28,6 +32,7 @@ namespace HudlAutomation.PageObjects
         public void SubmitLoginForm()
         {
             _webDriver.FindElement(_logIn).Click();
+            _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         public bool ErrorMessageOnLoginAttempt()
@@ -42,13 +47,11 @@ namespace HudlAutomation.PageObjects
 
         public void ResetPasswordClick()
         {
-            Thread.Sleep(3000);
             _webDriver.FindElement(_resetPasswordBtn).Click();
         }
 
         public bool SuccessMessageOnReset()
         {
-            Thread.Sleep(3000);
             return _webDriver.FindElement(_checkYourEmail).Displayed;
         }
     }
